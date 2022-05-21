@@ -1,0 +1,262 @@
+//
+// Autofill Chrome
+//
+
+input {
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill:active {
+        -webkit-background-clip: text;
+    }
+    &:-webkit-autofill{
+        -webkit-text-fill-color: #fff !important;
+    }
+}
+
+//
+// Form Label
+//
+
+.form-label {
+    display: block;
+    font-size: .7rem;
+    letter-spacing: .04em;
+    color: fade(#fff, 40%);
+    margin: 0 0 .5em 1rem;
+}
+
+//
+// Form Field
+//
+
+.form-field {
+    display: block;
+    width: 100%;
+    min-height: 2.2rem;
+    border-radius: 1.1rem;
+    border: solid 1px fade(#fff, 15%);
+    background: linear-gradient(
+        fade(#fff, 2%), 
+        fade(#fff, 10%)
+    );
+    -webkit-backdrop-filter: blur(4rem) saturate(180%);
+    backdrop-filter: blur(4rem) saturate(180%);
+    color: #fff;
+    font-size: .7rem;
+    font-weight: 400;
+    letter-spacing: .04em;
+    padding: 0 1rem;
+    box-shadow: 0 .5rem 1.5rem fade(#000, 15%);
+    outline: none;
+
+    &::placeholder {
+        color: fade(#fff, 70%);
+        opacity: 1;
+    }
+      
+    &:-ms-input-placeholder { 
+        color: fade(#fff, 70%);
+    }
+
+    &::-ms-input-placeholder { 
+        color: fade(#fff, 70%);
+    }
+}
+
+//
+// Form Icon
+//
+
+.form-icon {
+    width: 1.8rem;
+    height: 1.8rem;
+    border-radius: 50%;
+    background: fade(#fff, 10%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .form-field:focus + & {
+        background: fade(#fff, 20%);;
+    }
+
+    svg {
+        display: block;
+        width: 55%;
+        height: 55%;
+    }
+    path, polygon {
+        fill: fade(#fff, 50%);
+
+        &.stroke {
+            fill: none;
+            stroke: fade(#fff, 50%);
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-miterlimit: 10;
+        }
+
+        .form-field:focus + & { 
+            fill: #fff; 
+            &.stroke {
+                fill: none;
+                stroke: #fff; 
+            }
+        }
+
+        .form-field_error + & { 
+            fill: lighten(@danger, 3%); 
+            &.stroke {
+                fill: none;
+                stroke: @danger; 
+            }
+        }
+
+        .form-field_success + & { 
+            fill: lighten(@success, 5%); 
+            &.stroke {
+                fill: none;
+                stroke: @success; 
+            }
+        }
+    }
+}
+
+.form-icon-field {
+    position: relative;
+
+    .form-icon {
+        position: absolute;
+        left: .2rem;
+        top: .2rem;
+    }
+    .form-field { 
+        padding-left: 2.7rem;
+    }
+}
+
+//
+// Form Password
+//
+
+.form-password {
+    position: relative;
+
+    .form-field {
+        padding-right: 2.5rem;
+    }
+}
+.form-password__button {
+    width: 2.2rem;
+    height: 2.2rem;
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    overflow: hidden;
+    text-indent: -1000px;
+    opacity: .5;
+    cursor: pointer;
+    background: none;
+
+    &:before,
+    &:after {
+        content: '';
+        display: none;
+        position: absolute;
+        left: 0; 
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: no-repeat 50% 50%;
+        background-size: 45% 45%;
+    }
+    &:before {
+        background-image: url('@{path-images}/icon-eye-hide.svg');
+    }
+    &:after {
+        background-image: url('@{path-images}/icon-eye-show.svg');
+    }
+
+    &:before {
+        .form-password.is-shown & {
+            display: block;
+        }
+    }
+
+    &:after {
+        .form-password.is-hidden & {
+            display: block;
+        }
+    }
+}
+
+@media (hover: hover) {
+    .form-password__button:hover {
+        opacity: 1;
+    }
+}
+
+//
+// Form Error
+//
+
+.form-error {
+    color: @danger;
+    font-size: .7rem;
+    letter-spacing: .04em;
+    margin: .5em 0 0 1rem;
+    display: none;
+}
+
+//
+// Form Group
+//
+
+.form-group {
+    margin: 0 0 .75rem;
+}
+
+//
+// Form Container
+//
+
+.form {
+    background: fade(#fff, 7%);
+    border-radius: .5rem;
+    -webkit-backdrop-filter: blur(.3rem) saturate(120%);
+    backdrop-filter: blur(.3rem) saturate(120%);
+    border: solid 2px fade(#e1e1e1, 15%);
+    border-bottom: none;
+    border-left-color: fade(#e1e1e1, 5%);
+    border-right-color: fade(#e1e1e1, 10%);
+    border-right-width: 1px;
+    width: 100%;
+    max-width: 20rem;
+    padding: 1.5rem 2rem 2.5rem;
+    color: #fff;
+}
+.form__title {
+    margin: 0 0 1.25em;
+    text-align: center;
+    font-size: 1.2rem;
+    line-height: 1;
+    font-weight: 700;
+    letter-spacing: .02em;
+}
+.form__submit {
+    margin: 1.5rem 0 0;
+}
+
+@media (max-width: 768px) {
+    .form { 
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+

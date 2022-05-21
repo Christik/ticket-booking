@@ -1,0 +1,31 @@
+//
+// Scene
+//
+
+.scene {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:before, &:after {
+        content: '';
+        display: block;
+        height: 2px;
+        background: @color-border;
+        flex-grow: 1;
+    }
+ }
+ .scene__text {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     border: solid 2px @color-border;
+     height: 1.5rem;
+     border-radius: .75rem;
+     padding: 0 1.5em;
+     color: @color-text-light;
+     font-size: .6rem;
+     font-weight: 600;
+     letter-spacing: .08em;
+     text-transform: uppercase;
+ }

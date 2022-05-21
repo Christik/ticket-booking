@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Бронирование билетов</title>
+</head>
+<body>
+    <div class="app">
+        <h1 class="app__title">
+            Бронирование билетов
+        </h1>
+
+        <ul class="statuses app__statuses">
+            <li class="status statuses__item">
+                <div class="seat seat_available seat_cheap status__icon"></div>
+                <div class="status__caption">1 000 ₽</div>
+            </li>
+            <li class="status statuses__item">
+                <div class="seat seat_available seat_inexpensive status__icon"></div>
+                <div class="status__caption">1 500 ₽</div>
+            </li>
+            <li class="status statuses__item">
+                <div class="seat seat_available seat_expensive status__icon"></div>
+                <div class="status__caption">3 000 ₽</div>
+            </li>
+            <li class="status statuses__item">
+                <div class="seat seat_reserved status__icon"></div>
+                <div class="status__caption">Место занято</div>
+            </li>
+            <li class="status statuses__item">
+                <div class="seat seat_selected status__icon"></div>
+                <div class="status__caption">Ваше место</div>
+            </li>
+        </ul>
+
+        <div class="auditorium">
+            <div class="scene auditorium__scene">
+                <div class="scene__text">Сцена</div>
+            </div>
+
+            <div class="seats">
+                <div class="seats__row">
+                    <div class="seats__cell"></div>
+                    <div class="seats__cell"></div>
+                    <div class="seats__cell">
+                        <div class="seat seat_available seat_expensive">3</div>
+                    </div>
+                    <div class="seats__cell">
+                        <div class="seat seat_reserved seat_expensive">4</div>
+                    </div>
+                    <div class="seats__cell">
+                        <div class="seat seat_reserved seat_expensive">5</div>
+                    </div>
+                    <div class="seats__cell">
+                        <div class="seat seat_reserved seat_expensive">6</div>
+                    </div>
+                    <div class="seats__cell">
+                        <div class="seat seat_available seat_expensive">7</div>
+                    </div>
+                    <div class="seats__cell">
+                        <div class="seat seat_available seat_expensive">8</div>
+                    </div>
+                    <div class="seats__cell"></div>
+                    <div class="seats__cell"></div>
+                </div><!--seats__row-->
+
+                <div class="seats__row">
+                    <div class="seats__cell">
+                        <div class="seat seat_available seat_inexpensive">1</div>
+                    </div>
+                    <div class="seats__cell">
+                        <div class="seat seat_reserved seat_inexpensive">2</div>
+                    </div>
+                    <div class="seats__cell">
+                        <div class="seat seat_reserved seat_inexpensive">3</div>
+                    </div>
+                    <div class="seats__cell">
+                        <div class="seat seat_reserved seat_inexpensive">4</div>
+                    </div>
+                    <div class="seats__cell">
+                        <div class="seat seat_available seat_inexpensive">5</div>
+                    </div>
+                    <div class="seats__cell">
+                        <div class="seat seat_reserved seat_inexpensive">6</div>
+                    </div>
+                    <div class="seats__cell">
+                        <div class="seat seat_reserved seat_inexpensive">7</div>
+                    </div>
+                    <div class="seats__cell">
+                        <div class="seat seat_reserved seat_inexpensive">8</div>
+                    </div>
+                    <div class="seats__cell">
+                        <div class="seat seat_available seat_inexpensive">9</div>
+                    </div>
+                    <div class="seats__cell">
+                        <div class="seat seat_available seat_inexpensive">10</div>
+                    </div>
+                </div><!--.seats__row-->
+
+                <div class="seats__row">
+                    <div class="seats__cell">
+                        <div class="seat seat_available seat_inexpensive">1</div>
+                    </div>
+                    <div class="seats__cell">
+                        <div class="seat seat_available seat_inexpensive">2</div>
+                    </div>
+                    <div class="seats__cell">
+                        <div class="seat seat_available seat_inexpensive">3</div>
+                    </div>
+                    <div class="seats__cell">
+                        <div class="seat seat_reserved seat_inexpensive">4</div>
+                    </div>
+                    <div class="seats__cell">
+                        <div class="seat seat_reserved seat_inexpensive">5</div>
+                    </div>
+                    <div class="seats__cell">
+                        <div class="seat seat_reserved seat_inexpensive">6</div>
+                    </div>
+                    <div class="seats__cell">
+                        <div class="seat seat_reserved seat_inexpensive">7</div>
+                    </div>
+                    <div class="seats__cell">
+                        <div class="seat seat_available seat_inexpensive">8</div>
+                    </div>
+                    <div class="seats__cell">
+                        <div class="seat seat_available seat_inexpensive">9</div>
+                    </div>
+                    <div class="seats__cell">
+                        <div class="seat seat_available seat_inexpensive">10</div>
+                    </div>
+                </div><!--.seats__row-->
+
+                <div class="seats__row">
+                    <div class="seats__cell">
+                        <div class="seat seat_available seat_inexpensive">1</div>
+                    </div>
+                    <div class="seats__cell">
+                        <div class="seat seat_available seat_inexpensive">2</div>
+                    </div>
+                    <div class="seats__cell">
+                        <div class="seat seat_reserved seat_inexpensive">3</div>
+                    </div>
+                    <div class="seats__cell">
+                        <div class="seat seat_reserved seat_inexpensive">4</div>
+                    </div>
+                    <div class="seats__cell">
+                        <div class="seat seat_reserved seat_inexpensive">5</div>
+                    </div>
+                    <div class="seats__cell">
+                        <div class="seat seat_selected seat_inexpensive">6</div>
+                    </div>
+                    <div class="seats__cell">
+                        <div class="seat seat_selected seat_inexpensive">7</div>
+                    </div>
+                    <div class="seats__cell">
+                        <div class="seat seat_available seat_inexpensive">8</div>
+                    </div>
+                    <div class="seats__cell">
+                        <div class="seat seat_available seat_inexpensive">9</div>
+                    </div>
+                    <div class="seats__cell">
+                        <div class="seat seat_available seat_inexpensive">10</div>
+                    </div>
+                </div><!--.seats__row-->
+
+                <div class="seats__row">
+                    <div class="seats__cell"></div>
+                    <div class="seats__cell">
+                        <div class="seat seat_reserved seat_cheap">2</div>
+                    </div>
+                    <div class="seats__cell">
+                        <div class="seat seat_reserved seat_cheap">3</div>
+                    </div>
+                    <div class="seats__cell">
+                        <div class="seat seat_reserved seat_cheap">4</div>
+                    </div>
+                    <div class="seats__cell">
+                        <div class="seat seat_reserved seat_cheap">5</div>
+                    </div>
+                    <div class="seats__cell">
+                        <div class="seat seat_reserved seat_cheap">6</div>
+                    </div>
+                    <div class="seats__cell">
+                        <div class="seat seat_reserved seat_cheap">7</div>
+                    </div>
+                    <div class="seats__cell">
+                        <div class="seat seat_reserved seat_cheap">8</div>
+                    </div>
+                    <div class="seats__cell">
+                        <div class="seat seat_reserved seat_cheap">9</div>
+                    </div>
+                    <div class="seats__cell"></div>
+                </div><!--.seats__row-->
+
+                <div class="seats__row">
+                    <div class="seats__cell"></div>
+                    <div class="seats__cell">
+                        <div class="seat seat_available seat_cheap">2</div>
+                    </div>
+                    <div class="seats__cell">
+                        <div class="seat seat_reserved seat_cheap">3</div>
+                    </div>
+                    <div class="seats__cell">
+                        <div class="seat seat_reserved seat_cheap">4</div>
+                    </div>
+                    <div class="seats__cell">
+                        <div class="seat seat_reserved seat_cheap">5</div>
+                    </div>
+                    <div class="seats__cell">
+                        <div class="seat seat_reserved seat_cheap">6</div>
+                    </div>
+                    <div class="seats__cell">
+                        <div class="seat seat_reserved seat_cheap">7</div>
+                    </div>
+                    <div class="seats__cell">
+                        <div class="seat seat_available seat_cheap">8</div>
+                    </div>
+                    <div class="seats__cell">
+                        <div class="seat seat_available seat_cheap">9</div>
+                    </div>
+                    <div class="seats__cell"></div>
+                </div><!--.seats__row-->
+
+                <div class="seats__row">
+                    <div class="seats__cell"></div>
+                    <div class="seats__cell">
+                        <div class="seat seat_available seat_cheap">2</div>
+                    </div>
+                    <div class="seats__cell">
+                        <div class="seat seat_available seat_cheap">3</div>
+                    </div>
+                    <div class="seats__cell">
+                        <div class="seat seat_available seat_cheap">4</div>
+                    </div>
+                    <div class="seats__cell">
+                        <div class="seat seat_available seat_cheap">5</div>
+                    </div>
+                    <div class="seats__cell">
+                        <div class="seat seat_reserved seat_cheap">6</div>
+                    </div>
+                    <div class="seats__cell">
+                        <div class="seat seat_reserved seat_cheap">7</div>
+                    </div>
+                    <div class="seats__cell">
+                        <div class="seat seat_reserved seat_cheap">8</div>
+                    </div>
+                    <div class="seats__cell">
+                        <div class="seat seat_available seat_cheap">9</div>
+                    </div>
+                    <div class="seats__cell"></div>
+                </div><!--.seats__row-->
+
+                <div class="seats__row">
+                    <div class="seats__cell"></div>
+                    <div class="seats__cell">
+                        <div class="seat seat_available seat_cheap">2</div>
+                    </div>
+                    <div class="seats__cell">
+                        <div class="seat seat_available seat_cheap">3</div>
+                    </div>
+                    <div class="seats__cell">
+                        <div class="seat seat_available seat_cheap">4</div>
+                    </div>
+                    <div class="seats__cell">
+                        <div class="seat seat_available seat_cheap">5</div>
+                    </div>
+                    <div class="seats__cell">
+                        <div class="seat seat_available seat_cheap">6</div>
+                    </div>
+                    <div class="seats__cell">
+                        <div class="seat seat_available seat_cheap">7</div>
+                    </div>
+                    <div class="seats__cell">
+                        <div class="seat seat_available seat_cheap">8</div>
+                    </div>
+                    <div class="seats__cell">
+                        <div class="seat seat_available seat_cheap">9</div>
+                    </div>
+                    <div class="seats__cell"></div>
+                </div><!--.seats__row-->
+            </div><!--seats-->
+        </div><!--.auditorium-->
+
+        <div class="order-block app__order-block">
+            <ul class="order-list">
+                <li class="order">
+                    <div class="order__label">
+                        Ряд <span>4</span>, 
+                        место <span>6</span>
+                    </div>
+                    <div class="order__price">
+                        <span>1 500</span> ₽
+                    </div>
+                </li><!--.order-->
+                <li class="order">
+                    <div class="order__label">
+                        Ряд <span>4</span>, 
+                        место <span>7</span>
+                    </div>
+                    <div class="order__price">
+                        <span>1 500</span> ₽
+                    </div>
+                </li><!--.order-->
+            </ul>
+
+            <div class="order order_total">
+                <div class="order__label">
+                    Всего:
+                </div>
+                <div class="order__price">
+                    <span>3 000</span> ₽
+                </div>
+            </div><!--.order-->
+        </div><!--.order-block-->
+    </div><!--.app-->
+</body>
+</html>
