@@ -12,29 +12,6 @@
             Бронирование билетов
         </h1>
 
-        <ul class="statuses app__statuses">
-            <li class="status statuses__item">
-                <div class="seat seat_available seat_cheap status__icon"></div>
-                <div class="status__caption">1 000 ₽</div>
-            </li>
-            <li class="status statuses__item">
-                <div class="seat seat_available seat_inexpensive status__icon"></div>
-                <div class="status__caption">1 500 ₽</div>
-            </li>
-            <li class="status statuses__item">
-                <div class="seat seat_available seat_expensive status__icon"></div>
-                <div class="status__caption">3 000 ₽</div>
-            </li>
-            <li class="status statuses__item">
-                <div class="seat seat_reserved status__icon"></div>
-                <div class="status__caption">Место занято</div>
-            </li>
-            <li class="status statuses__item">
-                <div class="seat seat_selected status__icon"></div>
-                <div class="status__caption">Ваше место</div>
-            </li>
-        </ul>
-
         <div class="app__content">
             <div class="auditorium app__auditorium">
                 <div class="scene auditorium__scene">
@@ -284,20 +261,45 @@
                 </div><!--seats-->
             </div><!--.auditorium-->
 
-            <div class="order-block app__order-block">
-                <ul class="order-list"
-                    data-order-list>
-                </ul>
+            <div class="app__info">
+                <ul class="legends app__legends">
+                    <li class="legend legends__item">
+                        <div class="seat seat_available seat_cheap legend__icon"></div>
+                        <div class="legend__caption">1 000 ₽</div>
+                    </li>
+                    <li class="legend legends__item">
+                        <div class="seat seat_available seat_inexpensive legend__icon"></div>
+                        <div class="legend__caption">1 500 ₽</div>
+                    </li>
+                    <li class="legend legends__item">
+                        <div class="seat seat_available seat_expensive legend__icon"></div>
+                        <div class="legend__caption">3 000 ₽</div>
+                    </li>
+                    <li class="legend legends__item">
+                        <div class="seat seat_reserved legend__icon"></div>
+                        <div class="legend__caption">Место занято</div>
+                    </li>
+                    <li class="legend legends__item">
+                        <div class="seat seat_selected legend__icon"></div>
+                        <div class="legend__caption">Ваше место</div>
+                    </li>
+                </ul><!--.legends-->
 
-                <div class="order order_total">
-                    <div class="order__label">
-                        Всего:
-                    </div>
-                    <div class="order__price">
-                        <span data-total>0</span> ₽
-                    </div>
-                </div><!--.order-->
-            </div><!--.order-block-->
+                <div class="order-block app__order-block">
+                    <ul class="order-list"
+                        data-order-list>
+                    </ul>
+
+                    <div class="order order_total">
+                        <div class="order__label">
+                            Всего:
+                        </div>
+                        <div class="order__price">
+                            <span data-total>0</span> ₽
+                        </div>
+                    </div><!--.order-->
+                </div><!--.order-block-->
+            </div><!--.app__info-->
         </div><!--.app__content-->
     </div><!--.app-->
 </body>
