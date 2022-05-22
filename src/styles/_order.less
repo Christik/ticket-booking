@@ -10,8 +10,8 @@
     font-size: .7rem;
     padding: 1em 0;
 
-    &:not(:first-child) {
-        border-top: solid 1px @color-border;
+    .order-list & {
+        border-bottom: solid 1px @color-border;
     }
 }
 .order_total { font-weight: 500;
@@ -39,8 +39,9 @@
 
 .order-block {
     margin: 0 auto;
+    width: 100%;
     max-width: 18rem;
     border: solid 1px @color-border;
-    padding: .5rem 1rem;
+    padding: .5rem1rem;
     border-radius: .5rem;
 }
