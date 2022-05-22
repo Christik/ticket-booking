@@ -12,6 +12,7 @@ const settings = {
     expensiveClass: 'seat_expensive',
     inexpensiveClass: 'seat_inexpensive',
     cheatClass: 'seat_cheap',
+    seatElement: '.seats .seat',
     rowElement: '.seats__row',
     orderListElement: '[data-order-list]',
     totalElement: '[data-total]',
@@ -73,6 +74,44 @@ const getTotal = () => {
     return total;
 };
 
+// Отметить выбранные кресла, согласно данным из localStorage 
+const setSeatsSelected = () => {
+    const seatsSelectedPosition = JSON.parse(
+        localStorage.getItem('seatsSelectedPosition')
+    );
+
+    if (seatsSelectedPosition) {
+        seatsSelectedPosition.forEach((position) => {
+            const [ rowNumber, seatNumber ] = position;
+            const row = document.querySelector(`${settings.rowElement}:nth-child(${rowNumber})`);
+            const cell = row.children[seatNumber - 1];
+            const seat = cell.querySelector(settings.seatElement);
+
+            toggleSeatClass(seat);
+        });
+    }
+
+};
+
+// Сохранить в locasStorage расположение выбранных пользователем мест
+const saveSeatsSelectedPosition = () => {
+    const seatsSelected = getSeatsSelected();
+
+    // Получаем массив с позициями выбранных пользователем мест.
+    // Каждая позиция - массив с номером ряда и номером места
+    const seatsSelectedPosition = [...seatsSelected].map((seat) => {
+        const seatNumber = getSeatNumber(seat);
+        const rowNumber = getRowNumber(seat);
+
+        return [rowNumber, seatNumber];
+    });
+
+    localStorage.setItem(
+        'seatsSelectedPosition', 
+        JSON.stringify(seatsSelectedPosition)
+    );
+};
+
 // Обновить общую сумму
 const updateTotal = () => {
     const total = getTotal();
@@ -96,9 +135,7 @@ const updateOrder = () => {
         orderRows.push(orderRow);
     });
 
-    const template = templateOrderList({
-        orderRows,
-    });
+    const template = templateOrderList({ orderRows });
 
     orderList.innerHTML = template;
 };
@@ -111,11 +148,19 @@ const toggleSeatClass = (seat) => {
 
 // Делегирование клика по креслу в зале
 auditorium.addEventListener('click', (event) => {
-    const seat = event.target.closest(`.${settings.availableClass}, .${settings.selectedClass}`);
+    const seat = event.target.closest(
+        `.${settings.availableClass}, .${settings.selectedClass}`
+    );
 
     if (seat) {
         toggleSeatClass(seat);
         updateOrder();
         updateTotal();
+        saveSeatsSelectedPosition();
     }
 });
+
+// Инициализация
+setSeatsSelected();
+updateOrder();
+updateTotal();
