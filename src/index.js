@@ -5,7 +5,7 @@ import getIndexOfElement from './utilities/index-of-element';
 import templateOrderList from './templates/order-list.hbs';
 
 // Настройки
-const settings = {
+const SETTINGS = {
     availableClass: 'seat_available',
     selectedClass: 'seat_selected',
     reservedClass: 'seat_reserved',
@@ -20,17 +20,17 @@ const settings = {
 
 // Вилка цен
 const pricesMap = {
-    [settings.expensiveClass]: 3000,
-    [settings.inexpensiveClass]: 1500,
-    [settings.cheatClass]: 1000,
+    [SETTINGS.expensiveClass]: 3000,
+    [SETTINGS.inexpensiveClass]: 1500,
+    [SETTINGS.cheatClass]: 1000,
 };
 
 // Зал с креслами
-const auditorium = document.querySelector('.auditorium');
+const auditoriumEl = document.querySelector('.auditorium');
 
 // Получить номер ряда
 const getRowNumber = (seat) => {
-    const row = seat.closest(settings.rowElement);
+    const row = seat.closest(SETTINGS.rowElement);
     const index = getIndexOfElement(row);
 
     return (index + 1);
@@ -56,17 +56,17 @@ const getPriceOfSeat = (seat) => {
 
 // Получить все места, выбранные пользователем
 const getSeatsSelected = () => {
-    const seatsSelected = auditorium.querySelectorAll(`.${settings.selectedClass}`);
+    const seatsSelectedEl = auditoriumEl.querySelectorAll(`.${SETTINGS.selectedClass}`);
 
-    return seatsSelected;
+    return seatsSelectedEl;
 };
 
 // Получить общую сумму
 const getTotal = () => {
-    const seatsSelected = getSeatsSelected();
+    const seatsSelectedEl = getSeatsSelected();
     let total = 0;
 
-    seatsSelected.forEach((seat) => {
+    seatsSelectedEl.forEach((seat) => {
         const price = getPriceOfSeat(seat);
         total += price;
     });
@@ -83,23 +83,22 @@ const setSeatsSelected = () => {
     if (seatsSelectedPosition) {
         seatsSelectedPosition.forEach((position) => {
             const [ rowNumber, seatNumber ] = position;
-            const row = document.querySelector(`${settings.rowElement}:nth-child(${rowNumber})`);
-            const cell = row.children[seatNumber - 1];
-            const seat = cell.querySelector(settings.seatElement);
+            const rowEl = document.querySelector(`${SETTINGS.rowElement}:nth-child(${rowNumber})`);
+            const cellEl = rowEl.children[seatNumber - 1];
+            const seatEl = cellEl.querySelector(SETTINGS.seatElement);
 
-            toggleSeatClass(seat);
+            toggleSeatClass(seatEl);
         });
     }
-
 };
 
 // Сохранить в locasStorage расположение выбранных пользователем мест
 const saveSeatsSelectedPosition = () => {
-    const seatsSelected = getSeatsSelected();
+    const seatsSelectedEl = getSeatsSelected();
 
     // Получаем массив с позициями выбранных пользователем мест.
     // Каждая позиция - массив с номером ряда и номером места
-    const seatsSelectedPosition = [...seatsSelected].map((seat) => {
+    const seatsSelectedPosition = [...seatsSelectedEl].map((seat) => {
         const seatNumber = getSeatNumber(seat);
         const rowNumber = getRowNumber(seat);
 
@@ -115,18 +114,18 @@ const saveSeatsSelectedPosition = () => {
 // Обновить общую сумму
 const updateTotal = () => {
     const total = getTotal();
-    const totalElement = document.querySelector(settings.totalElement);
+    const totalEl = document.querySelector(SETTINGS.totalElement);
 
-    totalElement.textContent = formatNumber(total);
+    totalEl.textContent = formatNumber(total);
 };
 
 // Обновить информацию о заказе
 const updateOrder = () => {
-    const orderList = document.querySelector(settings.orderListElement);
-    const seatsSelected = getSeatsSelected();
+    const orderListEl = document.querySelector(SETTINGS.orderListElement);
+    const seatsSelectedEl = getSeatsSelected();
     const orderRows = [];
     
-    seatsSelected.forEach((seat) => {
+    seatsSelectedEl.forEach((seat) => {
         const orderRow = {
             rowNumber: getRowNumber(seat),
             seatNumber: getSeatNumber(seat),
@@ -137,19 +136,19 @@ const updateOrder = () => {
 
     const template = templateOrderList({ orderRows });
 
-    orderList.innerHTML = template;
+    orderListEl.innerHTML = template;
 };
 
 // Переключение классов кресел
 const toggleSeatClass = (seat) => {
-    seat.classList.toggle(settings.availableClass);
-    seat.classList.toggle(settings.selectedClass);
+    seat.classList.toggle(SETTINGS.availableClass);
+    seat.classList.toggle(SETTINGS.selectedClass);
 };
 
 // Делегирование клика по креслу в зале
-auditorium.addEventListener('click', (event) => {
+auditoriumEl.addEventListener('click', (event) => {
     const seat = event.target.closest(
-        `.${settings.availableClass}, .${settings.selectedClass}`
+        `.${SETTINGS.availableClass}, .${SETTINGS.selectedClass}`
     );
 
     if (seat) {
